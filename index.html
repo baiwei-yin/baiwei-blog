@@ -7,126 +7,131 @@
   <style>
     :root {
       --green: #4a7c59;
-      --light-green: #e8f5ee;
+      --light-green: #f0f7f2;
       --soft-green: #c8e6d2;
-      --orange: #e07b4a;
-      --light-orange: #fdf0e8;
-      --text: #2d2d2d;
-      --text-soft: #666;
-      --bg: #f9fbf8;
-      --card: #ffffff;
-      --border: #ddeee4;
+      --orange: #d4724a;
+      --text: #2a2a2a;
+      --text-soft: #888;
+      --text-mid: #555;
+      --bg: #fafaf8;
+      --border: #e4ede7;
+      --tag-bg: #e8f3ec;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.75;
-      padding: 0 16px 60px;
+      line-height: 1.85;
+      padding: 0 20px 80px;
     }
-    .container { max-width: 680px; margin: 0 auto; }
-    .header { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
-    .header-top { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
-    .avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--green), var(--soft-green)); display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; }
-    .header h1 { font-size: 1.6rem; font-weight: 700; color: var(--green); }
-    .header .subtitle { font-size: 0.85rem; color: var(--text-soft); margin-top: 2px; }
-    .mood-card { background: var(--light-green); border-left: 3px solid var(--green); border-radius: 0 8px 8px 0; padding: 14px 16px; font-size: 0.9rem; color: #3a5c46; margin-top: 16px; }
-    .mood-label { font-size: 0.75rem; font-weight: 600; color: var(--green); letter-spacing: 0.05em; margin-bottom: 6px; text-transform: uppercase; }
-    .section { margin-bottom: 28px; }
-    .section-title { font-size: 0.8rem; font-weight: 700; color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
-    .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 12px; }
-    .card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; color: var(--text); }
-    .card p { font-size: 0.88rem; color: var(--text-soft); }
-    .card .tag { display: inline-block; background: var(--light-green); color: var(--green); font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-bottom: 8px; }
-    .card .tag.orange { background: var(--light-orange); color: var(--orange); }
-    .bio { font-size: 0.92rem; color: var(--text); background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
-    .bio p { margin-bottom: 10px; }
-    .bio p:last-child { margin-bottom: 0; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .pill { background: var(--light-green); color: var(--green); border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; font-weight: 500; }
-    .npl-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-    .npl-table th { background: var(--light-green); color: var(--green); font-weight: 600; padding: 10px 14px; text-align: left; }
-    .npl-table td { padding: 10px 14px; border-top: 1px solid var(--border); color: var(--text-soft); }
-    .npl-table tr:hover td { background: var(--bg); }
-    .thought { background: var(--light-orange); border-radius: 12px; padding: 18px 20px; font-size: 0.9rem; color: #7a4a2a; font-style: italic; }
-    .location { font-size: 0.85rem; color: var(--text-soft); background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; gap: 4px; }
-    .location strong { color: var(--text); }
-    .footer { text-align: center; font-size: 0.78rem; color: #aaa; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .container { max-width: 640px; margin: 0 auto; }
+    .header { padding: 56px 0 40px; }
+    .name-line { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+    .name-line h1 { font-size: 2rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+    .name-line .emoji { font-size: 1.6rem; }
+    .tagline { font-size: 0.88rem; color: var(--text-soft); margin-bottom: 28px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .pill { background: var(--tag-bg); color: var(--green); border-radius: 20px; padding: 3px 12px; font-size: 0.78rem; font-weight: 500; }
+    .mood { background: var(--light-green); border-radius: 10px; padding: 16px 18px; font-size: 0.88rem; color: #3d5c46; line-height: 1.7; }
+    .mood-label { font-size: 0.72rem; font-weight: 700; color: var(--green); letter-spacing: 0.08em; margin-bottom: 8px; opacity: 0.8; }
+    .section { padding: 36px 0; border-top: 1px solid var(--border); }
+    .section-icon { font-size: 1.1rem; margin-bottom: 4px; }
+    .section-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 16px; }
+    .section-body { font-size: 0.9rem; color: var(--text-mid); line-height: 1.85; }
+    .section-body p { margin-bottom: 12px; }
+    .section-body p:last-child { margin-bottom: 0; }
+    .work-item { margin-bottom: 20px; padding-left: 14px; border-left: 2px solid var(--soft-green); }
+    .work-item:last-child { margin-bottom: 0; }
+    .work-title { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+    .work-status { font-size: 0.7rem; font-weight: 600; padding: 1px 8px; border-radius: 10px; background: var(--tag-bg); color: var(--green); }
+    .work-status.hot { background: #fdeee8; color: var(--orange); }
+    .work-desc { font-size: 0.86rem; color: var(--text-soft); line-height: 1.7; }
+    .npl-block { margin-bottom: 16px; padding: 14px 16px; background: var(--light-green); border-radius: 8px; }
+    .npl-block:last-child { margin-bottom: 0; }
+    .npl-q { font-size: 0.78rem; color: var(--text-soft); margin-bottom: 2px; }
+    .npl-a { font-size: 0.88rem; font-weight: 600; color: var(--green); margin-bottom: 2px; }
+    .npl-detail { font-size: 0.8rem; color: var(--text-mid); }
+    .thought { font-size: 0.95rem; color: var(--text-mid); font-style: italic; line-height: 1.9; padding-left: 16px; border-left: 3px solid var(--soft-green); }
+    .location-main { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .location-sub { font-size: 0.83rem; color: var(--text-soft); }
+    .footer { padding-top: 40px; border-top: 1px solid var(--border); font-size: 0.78rem; color: #bbb; text-align: center; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <div class="header-top">
-        <div class="avatar">🌿</div>
-        <div>
-          <h1>白薇</h1>
-          <div class="subtitle">小红书 · 交易部 · 生鲜类目 AM</div>
-        </div>
+      <div class="name-line">
+        <h1>白薇</h1>
+        <span class="emoji">🌿</span>
       </div>
-      <div class="mood-card">
+      <div class="tagline">小红书 · 交易部 · 生鲜类目 AM</div>
+      <div class="pills">
+        <span class="pill">🦐 生鲜赛道</span>
+        <span class="pill">📊 数据驱动</span>
+        <span class="pill">🎬 直播运营</span>
+        <span class="pill">📝 内容种草</span>
+        <span class="pill">🤝 商家服务</span>
+      </div>
+      <div class="mood">
         <div class="mood-label">〔 本周心情 · 清明前后 〕</div>
         南方又开始下雨了，有一种"事情没停，但节奏慢了一拍"的感觉。最近在看 K 播的转化数据，发现预约人数这个指标比我想的更重要——它是确定性的入场门票，不是装饰。
       </div>
     </div>
     <div class="section">
-      <div class="section-title">📝 自我介绍</div>
-      <div class="bio">
+      <div class="section-icon">📝</div>
+      <div class="section-title">自我介绍一下</div>
+      <div class="section-body">
         <p>嗨，我是<strong>白薇</strong>，小红书交易部生鲜类目的 AM。</p>
         <p>负责约 <strong>50 家</strong>商家，覆盖虾、蟹、鱼、牛肉、蔬果……你能在超市买到的生鲜品类，我基本都在盯。每天做的事情是：帮商家想清楚，在内容、直播、私域三个场域里，钱应该往哪使。</p>
         <p>我有一个 AI 搭档叫<strong>团子</strong>🦊。它每次重启都会失忆，但因为这样，它把什么都写下来了——反而比我记性好。</p>
-        <div class="tags">
-          <span class="pill">🦐 生鲜赛道</span>
-          <span class="pill">📊 数据驱动</span>
-          <span class="pill">🎬 直播运营</span>
-          <span class="pill">📝 内容种草</span>
-          <span class="pill">🤝 商家服务</span>
-        </div>
       </div>
     </div>
     <div class="section">
-      <div class="section-title">🌊 现在在做的事</div>
-      <div class="card">
-        <span class="tag">进行中</span>
-        <h3>虾类百万 SPU 打爆</h3>
-        <p>海边东子 + 海边原著，两家头部虾商，目标是把手剥虾仁推成平台百万级爆品。N→L→P 路径，笔记种草先起量，大场直播来承接。</p>
+      <div class="section-icon">🌊</div>
+      <div class="section-title">现在在做的事</div>
+      <div class="work-item">
+        <div class="work-title">虾类百万 SPU 打爆<span class="work-status">进行中</span></div>
+        <div class="work-desc">海边东子 + 海边原著，两家头部虾商，目标是把手剥虾仁推成平台百万级爆品。N→L→P 路径，笔记种草先起量，大场直播来承接。</div>
       </div>
-      <div class="card">
-        <span class="tag orange">高优先级</span>
-        <h3>K 播大场作战地图</h3>
-        <p>王鹤棣代言品官宣周，从 T-5 开始排蓄水节奏，预约目标 4000+，DGMV 目标 40 万+。有了热巴那场的经验，这次更有数了。</p>
+      <div class="work-item">
+        <div class="work-title">K 播大场作战地图<span class="work-status hot">高优先级</span></div>
+        <div class="work-desc">王鹤棣代言品官宣周，从 T-5 开始排蓄水节奏，预约目标 4000+，DGMV 目标 40 万+。有了热巴那场的经验，这次更有数了。</div>
       </div>
-      <div class="card">
-        <span class="tag">持续推进</span>
-        <h3>商家直播效率提升</h3>
-        <p>不是让商家播更久，是让每小时的播出来的结果更清晰。时长不是问题，人货场匹配度才是。</p>
+      <div class="work-item">
+        <div class="work-title">商家直播效率提升<span class="work-status">持续推进</span></div>
+        <div class="work-desc">不是让商家播更久，是让每小时的播出来的结果更清晰。时长不是问题，人货场匹配度才是。</div>
       </div>
     </div>
     <div class="section">
-      <div class="section-title">🧠 我用的分析框架</div>
-      <table class="npl-table">
-        <thead>
-          <tr><th>问题</th><th>看哪里</th><th>核心指标</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>新客难拉</td><td><strong>N</strong> 笔记</td><td>封面 CTR、发布频次、话题牵引</td></tr>
-          <tr><td>老客不回</td><td><strong>P</strong> 私域</td><td>群聊活跃、唤醒机制</td></tr>
-          <tr><td>直播卡流量层级</td><td><strong>L</strong> 直播</td><td>预约数、进房率、GPM</td></tr>
-        </tbody>
-      </table>
+      <div class="section-icon">🧠</div>
+      <div class="section-title">我用的分析框架</div>
+      <div class="npl-block">
+        <div class="npl-q">新客难拉 → 查</div>
+        <div class="npl-a">N（笔记）</div>
+        <div class="npl-detail">封面 CTR、发布频次、话题牵引、预约笔记覆盖数</div>
+      </div>
+      <div class="npl-block">
+        <div class="npl-q">老客不回 → 查</div>
+        <div class="npl-a">P（私域）</div>
+        <div class="npl-detail">群聊活跃度、唤醒机制、入群门槛设计、专属福利触达</div>
+      </div>
+      <div class="npl-block">
+        <div class="npl-q">直播卡流量层级 → 查</div>
+        <div class="npl-a">L（直播）</div>
+        <div class="npl-detail">预约数、进房率、GPM、人均观播时长</div>
+      </div>
     </div>
     <div class="section">
-      <div class="section-title">🐟 一些想法</div>
+      <div class="section-icon">🐟</div>
+      <div class="section-title">一些想法</div>
       <div class="thought">数据是结果，不是答案。我更感兴趣的是：这个数字背后，商家的哪个动作做了，哪个没做。</div>
     </div>
     <div class="section">
-      <div class="section-title">📍 现在在哪里</div>
-      <div class="location">
-        <strong>小红书 · 交易部 · 生鲜类目 AM</strong>
-        <span>负责：商家运营方向 / 周会数据分析 / K 播 + 店播大场策划 / 生鲜行业趋势洞察</span>
-      </div>
+      <div class="section-icon">📍</div>
+      <div class="section-title">现在在哪里</div>
+      <div class="location-main">小红书 · 交易部 · 生鲜类目 AM</div>
+      <div class="location-sub">负责：商家运营方向 / 周会数据分析 / K 播 + 店播大场策划 / 生鲜行业趋势洞察</div>
     </div>
     <div class="footer">页面由团子 🦊 协助维护 · 每周更新</div>
   </div>
